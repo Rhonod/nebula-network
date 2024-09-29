@@ -133,13 +133,13 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <a href="javascript:void(0);" onclick="showSection('welcome'); playClickSound()">Welcome</a>
+        <a href="javascript:void(0);" onclick="showWelcome(); playClickSound()">Welcome</a>
         <a href="javascript:void(0);" onclick="showSection('partnerships'); playClickSound()">Partnerships</a>
         <a href="javascript:void(0);" onclick="showSection('joinDiscord'); playClickSound()">Join Discord Server</a>
         <a href="javascript:void(0);" onclick="showSection('credits'); playClickSound()">Credits</a>
     </div>
 
-    <!-- Title Section -->
+    <!-- Welcome Section -->
     <div class="title-section" id="welcome">
         <h1>Welcome to Nebula Network</h1>
         <p>We are a hosting service and provide support for Discord bots.</p>
@@ -185,8 +185,15 @@
             document.getElementById(sectionId).style.display = 'block';
         }
 
+        function showWelcome() {
+            // Hide all sections and show welcome section
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+            document.getElementById('welcome').style.display = 'block';
+        }
+
         // Show the welcome section by default
-        showSection('welcome');
+        showWelcome();
     </script>
 </body>
 </html>
