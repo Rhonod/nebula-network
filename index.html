@@ -90,12 +90,14 @@
             transform: translateY(-3px);
         }
 
-        /* Partnership Section */
-        .partnership-section {
-            margin-top: 50px;
+        /* Sections */
+        .section {
+            display: none; /* Hide all sections initially */
             padding: 50px;
+            text-align: center;
         }
 
+        /* Partnership Section */
         .partnership-section h2 {
             color: #FFD700;
             animation: glow 3s ease-in-out infinite;
@@ -131,10 +133,10 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <a href="#welcome" onclick="playClickSound()">Welcome</a>
-        <a href="#partnerships" onclick="playClickSound()">Partnerships</a>
-        <a href="#join-discord" onclick="playClickSound()">Join Discord Server</a>
-        <a href="#credits" onclick="playClickSound()">Credits</a>
+        <a href="javascript:void(0);" onclick="showSection('welcome'); playClickSound()">Welcome</a>
+        <a href="javascript:void(0);" onclick="showSection('partnerships'); playClickSound()">Partnerships</a>
+        <a href="javascript:void(0);" onclick="showSection('joinDiscord'); playClickSound()">Join Discord Server</a>
+        <a href="javascript:void(0);" onclick="showSection('credits'); playClickSound()">Credits</a>
     </div>
 
     <!-- Title Section -->
@@ -144,18 +146,19 @@
     </div>
 
     <!-- Join Discord Section -->
-    <div class="container" id="join-discord">
+    <div class="container section" id="joinDiscord">
+        <h2>Join Our Community</h2>
         <a href="https://discord.gg/s53g7yndd4" class="button" onclick="playClickSound()">Join Discord Server Today</a>
     </div>
 
     <!-- Partnership Section -->
-    <div class="partnership-section" id="partnerships">
+    <div class="partnership-section section" id="partnerships">
         <h2>Partnerships</h2>
         <p>Thank you for partnering with us. Currently, we do not have additional partnership messages. For inquiries, please contact us. (N/A)</p>
     </div>
 
     <!-- Credits Section -->
-    <div class="credits-section" id="credits">
+    <div class="credits-section section" id="credits">
         <h3>Credits</h3>
         <p>24k_onlyy - Founder & Head Developer</p>
     </div>
@@ -165,12 +168,25 @@
         <p>© 2024 Nebula Network - All Rights Reserved</p>
     </footer>
 
-    <!-- JavaScript for Click Sound -->
+    <!-- JavaScript for Click Sound and Section Visibility -->
     <script>
         const clickSound = document.getElementById('clickSound');
+
         function playClickSound() {
             clickSound.play();
         }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Show the welcome section by default
+        showSection('welcome');
     </script>
 </body>
 </html>
