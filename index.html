@@ -67,8 +67,21 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        .welcome-text {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInText 3s ease-out;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         .container {
             animation: fadeInContainer 3s ease-out;
+            text-align: center;
         }
 
         .button {
@@ -142,7 +155,7 @@
     <!-- Welcome Section -->
     <div class="title-section" id="welcome">
         <h1>Welcome to Nebula Network</h1>
-        <p>We are a hosting service and provide support for Discord bots.</p>
+        <p class="welcome-text">At Nebula Network, we offer exceptional hosting services tailored specifically for Discord bots. Our platform provides reliable performance, 24/7 support, and easy-to-use tools that help developers deploy their bots with ease. Whether you're starting your first bot or managing multiple instances, Nebula Network has the solutions you need to succeed!</p>
     </div>
 
     <!-- Join Discord Section -->
