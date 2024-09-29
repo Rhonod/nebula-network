@@ -5,61 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nebula Network</title>
     <style>
-        /* General Body Styles */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             font-family: 'Arial', sans-serif;
-        }
-
-        /* Background Animation */
-        body {
+            color: #ffffff;
             background: linear-gradient(45deg, #141e30, #243b55);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
         }
 
-        /* Gradient Animation */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Nebula Network Title Animation */
+        /* Navbar */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 15px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .navbar a:hover {
+            background: #4CAF50;
+            border-radius: 5px;
+            transform: translateY(-2px);
+        }
+
+        /* Title Section */
+        .title-section {
+            text-align: center;
+            margin-top: 100px; /* Spacing to avoid overlap with navbar */
+        }
+
         h1 {
             font-size: 3.5em;
             letter-spacing: 2px;
             animation: fadeInTitle 2s ease-out;
         }
 
-        /* Fade-In Title Animation */
         @keyframes fadeInTitle {
             0% { opacity: 0; transform: translateY(-20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Container for Content */
         .container {
             animation: fadeInContainer 3s ease-out;
         }
 
-        /* Container Fade Animation */
-        @keyframes fadeInContainer {
-            0% { opacity: 0; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Join Discord Button */
         .button {
             display: inline-block;
             margin-top: 20px;
@@ -70,35 +81,39 @@
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        /* Button Hover Effect */
         .button:hover {
             background-color: #3e8e41;
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
             transform: translateY(-3px);
         }
 
         /* Partnership Section */
         .partnership-section {
             margin-top: 50px;
+            padding: 50px;
         }
+
         .partnership-section h2 {
-            color: #FFD700; /* Golden color */
+            color: #FFD700;
             animation: glow 3s ease-in-out infinite;
         }
 
-        /* Glow Animation */
         @keyframes glow {
-            0% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700; }
-            50% { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700; }
-            100% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700; }
+            0% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; }
+            50% { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700; }
+            100% { text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; }
         }
 
-        /* Footer */
+        /* Credits Section */
+        .credits-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            margin-top: 30px;
+        }
+
         footer {
             position: fixed;
             bottom: 10px;
@@ -109,26 +124,53 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Main Title -->
+    <!-- Click Sound Effect -->
+    <audio id="clickSound">
+        <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+    </audio>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#welcome" onclick="playClickSound()">Welcome</a>
+        <a href="#partnerships" onclick="playClickSound()">Partnerships</a>
+        <a href="#join-discord" onclick="playClickSound()">Join Discord Server</a>
+        <a href="#credits" onclick="playClickSound()">Credits</a>
+    </div>
+
+    <!-- Title Section -->
+    <div class="title-section" id="welcome">
         <h1>Welcome to Nebula Network</h1>
         <p>We are a hosting service and provide support for Discord bots.</p>
+    </div>
 
-        <!-- Join Discord Button -->
-        <div class="container">
-            <a href="https://discord.gg/s53g7yndd4" class="button">Join Discord Server Today</a>
-        </div>
+    <!-- Join Discord Section -->
+    <div class="container" id="join-discord">
+        <a href="https://discord.gg/s53g7yndd4" class="button" onclick="playClickSound()">Join Discord Server Today</a>
+    </div>
 
-        <!-- Partnership Section -->
-        <div class="partnership-section">
-            <h2>Partnerships</h2>
-            <p>Thank you for partnering with us. Currently, we do not have additional partnership messages. For inquiries, please contact us. (N/A)</p>
-        </div>
+    <!-- Partnership Section -->
+    <div class="partnership-section" id="partnerships">
+        <h2>Partnerships</h2>
+        <p>Thank you for partnering with us. Currently, we do not have additional partnership messages. For inquiries, please contact us. (N/A)</p>
+    </div>
+
+    <!-- Credits Section -->
+    <div class="credits-section" id="credits">
+        <h3>Credits</h3>
+        <p>24k_onlyy - Founder & Head Developer</p>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>© 2024 Nebula Network - All Rights Reserved</p>
     </footer>
+
+    <!-- JavaScript for Click Sound -->
+    <script>
+        const clickSound = document.getElementById('clickSound');
+        function playClickSound() {
+            clickSound.play();
+        }
+    </script>
 </body>
 </html>
